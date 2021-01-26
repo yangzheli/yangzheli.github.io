@@ -1,18 +1,26 @@
 ---
-title: Collection
+title: 优质文章或网站收集
 categories: [writing]
 comments: true
 ---
 
-## 优质网站
+持续更新中!
+
+## 优质文章或网站
 
 ### Markdown
 
-[markdown 语法](https://www.jianshu.com/p/191d1e21f7ed/)
+[markdown 语法](https://blog.csdn.net/u014061630/article/details/81359144)
+
 [markdown 图标使用](https://shields.io/)
+
 [在 markdown 中使用表情符号](https://zhuanlan.zhihu.com/p/147764147)
+
 [markdown 表情](https://www.webfx.com/tools/emoji-cheat-sheet/)
+
 [部分表情使用场景](https://github.com/liuchengxu/git-commit-emoji-cn)
+
+[Emoji Unicode Tables](https://apps.timwhitlock.info/emoji/tables/unicode#block-4-enclosed-characters)
 
 ## Github
 
@@ -27,5 +35,3 @@ comments: true
 [阿里矢量图标库 Iconfont](https://www.iconfont.cn/)
 
 ### 素材库
-
-## 优质文章
