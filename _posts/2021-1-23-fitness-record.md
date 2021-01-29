@@ -1,6 +1,6 @@
 ---
 title: 去健身房一个月啦
-categories: [writing]
+categories: [daily]
 comments: true
 ---
 
