@@ -12,13 +12,14 @@ comments: true
 > - 字符串模板
 > - 不支持 CSS
 > - 没有构建步骤
->   文件扩展名为 .vue 的单文件组件 (SFC) 为以上问题提供了解决方案
+>
+> 文件扩展名为 .vue 的单文件组件 (SFC) 为以上问题提供了解决方案
 
-.vue 文件包含三种类型的块 `<template>``<script>``<style>`，还允许添加自定义块
+.vue 文件包含三种类型的块 `<template> <script> <style>`，还允许添加自定义块
 
 一个文件名为 HelloWorld.vue 的简单实例：
 
-```
+```vue
 <template>
   <div>{% raw %}{{ msg }}{% endraw %}</div>
 </template>
@@ -69,7 +70,7 @@ npm install babel-loader css-loader --save-dev
 
 **webpack.config.js**
 
-```
+```javascript
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
@@ -105,7 +106,7 @@ module.exports = {
 
 添加 npm scripts
 
-```
+```json
 "scripts": {
   "test": "echo \"Error: no test specified\" && exit 1",
   "start": "webpack serve --open",
@@ -181,7 +182,7 @@ div {
 
 新增规则
 
-```
+```javascript
 rules: [{
   test: /\.(png|jpg|gif)$/i,
   loader: 'url-loader'
@@ -192,7 +193,7 @@ rules: [{
 
 引用资源 URL
 
-```
+```vue
 <template>
   <div>
     <span>{% raw %}{{ msg }}{% endraw %}</span>
@@ -211,7 +212,7 @@ rules: [{
 
 修改后
 
-```
+```javascript
 rules: [{
   test: /\.(png|jpg|gif)$/i,
   use: [{

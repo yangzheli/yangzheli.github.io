@@ -38,6 +38,7 @@ defaults:
 
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 markdown: kramdown
+highlighter: rouge # 代码高亮插件
 
 # Filtering Content
 show_drafts: null
