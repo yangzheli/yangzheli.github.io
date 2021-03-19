@@ -12,9 +12,7 @@ comments: true
 
 ---
 
-### 正文
-
-#### JavaScript 中数据类型有哪些？
+### 1. JavaScript 中数据类型有哪些？
 
 (1) 原始类型：String、Number、Boolean、Undefined、Null、Symbol
 
@@ -26,4 +24,4 @@ comments: true
 
 (2) 对象/引用类型：Object (数组和函数也是特殊的对象)
 
-#### 变量声明与作用域
+### 2. 变量声明与作用域

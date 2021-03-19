@@ -6,8 +6,6 @@ comments: true
 
 持续更新中!
 
-## 优质文章或网站
-
 ### Markdown
 
 [markdown 语法](https://blog.csdn.net/u014061630/article/details/81359144)
@@ -21,6 +19,8 @@ comments: true
 [部分表情使用场景](https://github.com/liuchengxu/git-commit-emoji-cn)
 
 [Emoji Unicode Tables](https://apps.timwhitlock.info/emoji/tables/unicode#block-4-enclosed-characters)
+
+[在 git commit 中添加表情](https://www.jianshu.com/p/bb26733da917)
 
 ### Github
 
