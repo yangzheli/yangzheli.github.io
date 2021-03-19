@@ -6,6 +6,10 @@
 
 :point_right: [URL](https://yangzheli.github.io/)
 
+扫描二维码体验手机浏览效果：
+
+![qrcode](./assets/img/home/qrcode.png)
+
 ## Getting Started
 
 [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/)
