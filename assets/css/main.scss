@@ -20,8 +20,8 @@
   --job_font: #003845;
   --nav_font: #8d7edc;
   --nav_font_hover: #d4cef2;
-  --menu_font: #003845;
-  --menu_font_hover: #ebedef;
+  --catalog_font: #003845;
+  --catalog_font_hover: #ebedef;
   --shadow_color: rgba(160, 160, 160, 0.05);
   --post_title: #003845;
   --post_date: #003845;
@@ -47,8 +47,8 @@
   --job_font: #caccce;
   --nav_font: #8d7edc;
   --nav_font_hover: #d4cef2;
-  --menu_font: #caccce;
-  --menu_font_hover: rgba(0, 0, 0, 1);
+  --catalog_font: #caccce;
+  --catalog_font_hover: rgba(0, 0, 0, 0.2);
   --shadow_color: rgba(0, 0, 0, 1);
   --post_title: #46a891;
   --post_date: #e9ead7;
@@ -461,12 +461,15 @@ img {
 }
 
 #toc {
-  color: var(--menu_font);
+  color: var(--catalog_font);
   font-weight: 600;
   margin-top: 2rem;
   padding: 0 1.2rem;
   font-size: 1rem;
   text-align: left;
+  @include mobile-only {
+    display: none !important;
+  }
   & > span {
     margin-left: 0.8rem;
   }
@@ -482,8 +485,8 @@ img {
     left: 1rem;
     bottom: 0;
     width: 0.15rem;
-    background-color: #ebedef;
-    opacity: 0.8;
+    background-color: var(--catalog_font_hover);
+    opacity: 0.7;
   }
   & > li > a {
     position: relative;
@@ -498,6 +501,7 @@ img {
   ul > li > a {
     font-size: 0.9rem;
     font-weight: 600;
+    padding-left: 0.8rem;
     position: relative;
   }
   ul > ul > li > a {
@@ -508,7 +512,7 @@ img {
     opacity: 0.8;
   }
   a {
-    color: var(--menu_font);
+    color: var(--catalog_font);
     display: block;
     padding-left: 1rem;
     white-space: nowrap;
@@ -516,7 +520,7 @@ img {
     text-overflow: ellipsis;
     padding: 0.3rem 0;
     &:hover {
-      background-color: var(--menu_font_hover);
+      background-color: var(--catalog_font_hover);
     }
     &:active {
       color: #007fff;
@@ -690,6 +694,7 @@ img {
 
   th,
   td {
+    min-width: 4rem;
     padding-right: 1rem;
   }
 
