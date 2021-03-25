@@ -20,7 +20,7 @@ user:
   name: Blog
   pic: /assets/img/home/doraemon.jpg
   picAlt: "blog"
-  job: 不积跬步，无以至千里
+  message: 不积跬步，无以至千里
   aboutme: false # comment this out if you don't need the 'about' page.
 
 exclude:

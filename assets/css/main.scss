@@ -20,6 +20,8 @@
   --job_font: #003845;
   --nav_font: #8d7edc;
   --nav_font_hover: #d4cef2;
+  --menu_font: #003845;
+  --menu_font_hover: #ebedef;
   --shadow_color: rgba(160, 160, 160, 0.05);
   --post_title: #003845;
   --post_date: #003845;
@@ -45,6 +47,8 @@
   --job_font: #caccce;
   --nav_font: #8d7edc;
   --nav_font_hover: #d4cef2;
+  --menu_font: #caccce;
+  --menu_font_hover: rgba(0, 0, 0, 1);
   --shadow_color: rgba(0, 0, 0, 1);
   --post_title: #46a891;
   --post_date: #e9ead7;
@@ -342,14 +346,15 @@ img {
   font-size: 1.5em;
 }
 
-.header_job {
+.header_job,
+.header_mes {
   display: block;
   margin-top: 0.2rem;
   color: var(--job_font);
   font-size: 0.75em;
   font-family: -apple-system, BlinkMacSystemFont, "Titillium Web", "Segoe UI",
     Roboto, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .theme_changer {
@@ -422,9 +427,11 @@ img {
 }
 
 .nav_item {
+  font-weight: 600;
+  line-height: 1.4rem;
   display: inline-block;
-  *display: inline;
   zoom: 1;
+  opacity: 0.8;
 
   & a {
     color: var(--nav_font);
@@ -449,6 +456,70 @@ img {
 
     &:last-child {
       margin-right: 0;
+    }
+  }
+}
+
+#toc {
+  color: var(--menu_font);
+  font-weight: 600;
+  margin-top: 2rem;
+  padding: 0 1.2rem;
+  font-size: 1rem;
+  text-align: left;
+  & > span {
+    margin-left: 0.8rem;
+  }
+}
+
+#toc > ul {
+  padding-inline-start: 2rem;
+  position: relative;
+  &:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    bottom: 0;
+    width: 0.15rem;
+    background-color: #ebedef;
+    opacity: 0.8;
+  }
+  & > li > a {
+    position: relative;
+    padding-left: 1rem;
+    line-height: 1.3rem;
+  }
+  li {
+    padding: 0;
+    margin: 0;
+    list-style-type: disc;
+  }
+  ul > li > a {
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: relative;
+  }
+  ul > ul > li > a {
+    line-height: 1.2rem;
+    font-size: 0.9rem;
+    padding-left: 3rem;
+    font-weight: normal;
+    opacity: 0.8;
+  }
+  a {
+    color: var(--menu_font);
+    display: block;
+    padding-left: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.3rem 0;
+    &:hover {
+      background-color: var(--menu_font_hover);
+    }
+    &:active {
+      color: #007fff;
     }
   }
 }
