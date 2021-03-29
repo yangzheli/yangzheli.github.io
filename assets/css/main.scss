@@ -307,11 +307,13 @@ img {
 
   @include breakpoint(medium) {
     margin-top: 8rem;
+    margin-bottom: 4rem;
+    overflow: hidden;
     width: 100%;
   }
 
   @include mobile-only {
-    margin-top: 3rem;
+    margin-top: 3rem !important;  /* 不随滚轮改变 */
     width: 100%;
   }
 }
@@ -525,6 +527,9 @@ img {
     &:active {
       color: #007fff;
     }
+  }
+  .active {
+    background-color: var(--catalog_font_hover);
   }
 }
 

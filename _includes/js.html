@@ -1,70 +1,78 @@
 <!-- js from https://codepen.io/MrGrigri/pen/XQmWBv -->
 <script>
-    const themePreference = () => {
-        const hasLocalStorage = localStorage.getItem('theme');
-        let supports = false;
-        let theme = undefined;
+  const themePreference = () => {
+    const hasLocalStorage = localStorage.getItem("theme");
+    let supports = false;
+    let theme = undefined;
 
-        if (hasLocalStorage === 'light') {
-            theme = 'light';
-        }
-        if (hasLocalStorage === 'dark') {
-            theme = 'dark';
-        }
-
-        if (window.matchMedia(`(prefers_color: dark)`).matches) {
-            theme = hasLocalStorage ? hasLocalStorage : 'dark';
-            supports = true;
-        };
-        if (window.matchMedia(`(prefers_color: light)`).matches) {
-            theme = hasLocalStorage ? hasLocalStorage : 'light';
-            supports = true;
-        };
-        if (window.matchMedia(`(prefers_color: no-preference)`).matches) {
-            theme = hasLocalStorage ? hasLocalStorage : 'none';
-            supports = true;
-        };
-
-        return {
-            supports,
-            theme
-        };
+    if (hasLocalStorage === "light") {
+      theme = "light";
+    }
+    if (hasLocalStorage === "dark") {
+      theme = "dark";
     }
 
-    document.addEventListener('DOMContentLoaded', e => {
-        console.clear();
+    if (window.matchMedia(`(prefers_color: dark)`).matches) {
+      theme = hasLocalStorage ? hasLocalStorage : "dark";
+      supports = true;
+    }
+    if (window.matchMedia(`(prefers_color: light)`).matches) {
+      theme = hasLocalStorage ? hasLocalStorage : "light";
+      supports = true;
+    }
+    if (window.matchMedia(`(prefers_color: no-preference)`).matches) {
+      theme = hasLocalStorage ? hasLocalStorage : "none";
+      supports = true;
+    }
 
-        const userThemePreference = themePreference();
-        const toggle = document.querySelector('[theme_toggle]');
-        const html = document.documentElement;
+    return {
+      supports,
+      theme,
+    };
+  };
 
-        const setTheme = () => {
-            switch (userThemePreference.theme) {
-                case 'dark':
-                    toggle.checked = true;
-                    html.classList.add('dark');
-                    html.classList.remove('light');
-                    break;
-                case 'light':
-                    toggle.checked = false;
-                    html.classList.remove('dark');
-                    html.classList.add('light');
-                    break;
-            }
+  document.addEventListener(
+    "DOMContentLoaded",
+    (e) => {
+      console.clear();
+
+      const userThemePreference = themePreference();
+      const toggle = document.querySelector("[theme_toggle]");
+      const html = document.documentElement;
+
+      const setTheme = () => {
+        switch (userThemePreference.theme) {
+          case "dark":
+            toggle.checked = true;
+            html.classList.add("dark");
+            html.classList.remove("light");
+            break;
+          case "light":
+            toggle.checked = false;
+            html.classList.remove("dark");
+            html.classList.add("light");
+            break;
         }
-        setTheme();
-        toggle.addEventListener('click', e => {
-            if (toggle.checked) {
-                html.classList.add('dark');
-                html.classList.remove('light');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                html.classList.remove('dark');
-                html.classList.add('light');
-                localStorage.setItem('theme', 'light');
-            }
-        }, false);
-    }, false);
+      };
+      setTheme();
+      toggle.addEventListener(
+        "click",
+        (e) => {
+          if (toggle.checked) {
+            html.classList.add("dark");
+            html.classList.remove("light");
+            localStorage.setItem("theme", "dark");
+          } else {
+            html.classList.remove("dark");
+            html.classList.add("light");
+            localStorage.setItem("theme", "light");
+          }
+        },
+        false
+      );
+    },
+    false
+  );
 </script>
 
 <!-- jQuery -->
@@ -72,125 +80,207 @@
 
 <!-- js from https://github.com/ghiculescu/jekyll-table-of-contents -->
 <script>
-    (function ($) {
-        $.fn.toc = function (options) {
-            var defaults = {
-                    noBackToTopLinks: false,
-                    title: '<i>Jump to...</i>',
-                    minimumHeaders: 3,
-                    headers: 'h1, h2, h3, h4, h5, h6',
-                    listType: 'ol', // values: [ol|ul]
-                    showEffect: 'show', // values: [show|slideDown|fadeIn|none]
-                    showSpeed: 'slow', // set to 0 to deactivate effect
-                    classes: {
-                        list: '',
-                        item: '',
-                        link: ''
-                    }
-                },
-                settings = $.extend(defaults, options);
+  (function ($) {
+    $.fn.toc = function (options) {
+      var defaults = {
+          noBackToTopLinks: false,
+          title: "<i>Jump to...</i>",
+          minimumHeaders: 3,
+          headers: "h1, h2, h3, h4, h5, h6",
+          listType: "ol", // values: [ol|ul]
+          showEffect: "show", // values: [show|slideDown|fadeIn|none]
+          showSpeed: "slow", // set to 0 to deactivate effect
+          classes: {
+            list: "",
+            item: "",
+            link: "",
+          },
+        },
+        settings = $.extend(defaults, options);
 
-            function fixedEncodeURIComponent(str) {
-                return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
-                    return '%' + c.charCodeAt(0).toString(16);
-                });
-            }
-
-            function createLink(header) {
-                var innerText = (header.textContent === undefined) ? header.innerText : header.textContent;
-                return "<a class='" + settings.classes.link + "' href='#" + fixedEncodeURIComponent(header.id) +
-                    "'>" + innerText + "</a>";
-            }
-
-            var headers = $(settings.headers).filter(function () {
-                    // get all headers with an ID
-                    var previousSiblingName = $(this).prev().attr("name");
-                    if (!this.id && previousSiblingName) {
-                        this.id = $(this).attr("id", previousSiblingName.replace(/\./g, "-"));
-                    }
-                    return this.id;
-                }),
-                output = $(this);
-            if (!headers.length || headers.length < settings.minimumHeaders || !output.length) {
-                $(this).hide();
-                return;
-            }
-
-            if (0 === settings.showSpeed) {
-                settings.showEffect = 'none';
-            }
-
-            var render = {
-                show: function () {
-                    output.hide().html(html).show(settings.showSpeed);
-                },
-                slideDown: function () {
-                    output.hide().html(html).slideDown(settings.showSpeed);
-                },
-                fadeIn: function () {
-                    output.hide().html(html).fadeIn(settings.showSpeed);
-                },
-                none: function () {
-                    output.html(html);
-                }
-            };
-
-            var get_level = function (ele) {
-                return parseInt(ele.nodeName.replace("H", ""), 10);
-            };
-            var highest_level = headers.map(function (_, ele) {
-                return get_level(ele);
-            }).get().sort()[0];
-            var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
-
-            var level = get_level(headers[0]),
-                this_level,
-                html = "<span>" + settings.title + "</span>" + " <" + settings.listType +
-                " class=\"" + settings.classes.list + "\">";
-            headers.on('click', function () {
-                    if (!settings.noBackToTopLinks) {
-                        window.location.hash = this.id;
-                    }
-                })
-                .addClass('clickable-header')
-                .each(function (_, header) {
-                    this_level = get_level(header);
-                    if (!settings.noBackToTopLinks && this_level === highest_level) {
-                        $(header).addClass('top-level-header').after(return_to_top);
-                    }
-                    if (this_level === level) // same level as before; same indenting
-                        html += "<li class=\"" + settings.classes.item + "\">" + createLink(header);
-                    else if (this_level <= level) { // higher level than before; end parent ol
-                        for (var i = this_level; i < level; i++) {
-                            html += "</li></" + settings.listType + ">"
-                        }
-                        html += "<li class=\"" + settings.classes.item + "\">" + createLink(header);
-                    } else if (this_level >
-                        level) { // lower level than before; expand the previous to contain a ol
-                        for (i = this_level; i > level; i--) {
-                            html += "<" + settings.listType + " class=\"" + settings.classes.list + "\">" +
-                                "<li class=\"" + settings.classes.item + "\">"
-                        }
-                        html += createLink(header);
-                    }
-                    level = this_level; // update for the next one
-                });
-            html += "</" + settings.listType + ">";
-            if (!settings.noBackToTopLinks) {
-                $(document).on('click', '.back-to-top', function () {
-                    $(window).scrollTop(0);
-                    window.location.hash = '';
-                });
-            }
-
-            render[settings.showEffect]();
-        };
-    })(jQuery);
-
-    $(document).ready(function () {
-        $('#toc').toc({
-            title: '目录',
-            listType: 'ul'
+      function fixedEncodeURIComponent(str) {
+        return encodeURIComponent(str).replace(/[!'()*]/g, function (c) {
+          return "%" + c.charCodeAt(0).toString(16);
         });
+      }
+
+      function createLink(header) {
+        var innerText =
+          header.textContent === undefined
+            ? header.innerText
+            : header.textContent;
+        return (
+          "<a class='" +
+          settings.classes.link +
+          "' href='#" +
+          fixedEncodeURIComponent(header.id) +
+          "'>" +
+          innerText +
+          "</a>"
+        );
+      }
+
+      var headers = $(settings.headers).filter(function () {
+          // get all headers with an ID
+          var previousSiblingName = $(this).prev().attr("name");
+          if (!this.id && previousSiblingName) {
+            this.id = $(this).attr(
+              "id",
+              previousSiblingName.replace(/\./g, "-")
+            );
+          }
+          return this.id;
+        }),
+        output = $(this);
+      if (
+        !headers.length ||
+        headers.length < settings.minimumHeaders ||
+        !output.length
+      ) {
+        $(this).hide();
+        return;
+      }
+
+      if (0 === settings.showSpeed) {
+        settings.showEffect = "none";
+      }
+
+      var render = {
+        show: function () {
+          output.hide().html(html).show(settings.showSpeed);
+        },
+        slideDown: function () {
+          output.hide().html(html).slideDown(settings.showSpeed);
+        },
+        fadeIn: function () {
+          output.hide().html(html).fadeIn(settings.showSpeed);
+        },
+        none: function () {
+          output.html(html);
+        },
+      };
+
+      var get_level = function (ele) {
+        return parseInt(ele.nodeName.replace("H", ""), 10);
+      };
+      var highest_level = headers
+        .map(function (_, ele) {
+          return get_level(ele);
+        })
+        .get()
+        .sort()[0];
+      var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
+
+      var level = get_level(headers[0]),
+        this_level,
+        html =
+          "<span>" +
+          settings.title +
+          "</span>" +
+          " <" +
+          settings.listType +
+          ' class="' +
+          settings.classes.list +
+          '">';
+      headers
+        .on("click", function () {
+          if (!settings.noBackToTopLinks) {
+            window.location.hash = this.id;
+          }
+        })
+        .addClass("clickable-header")
+        .each(function (_, header) {
+          this_level = get_level(header);
+          if (!settings.noBackToTopLinks && this_level === highest_level) {
+            $(header).addClass("top-level-header").after(return_to_top);
+          }
+          if (this_level === level)
+            // same level as before; same indenting
+            html +=
+              '<li class="' + settings.classes.item + '">' + createLink(header);
+          else if (this_level <= level) {
+            // higher level than before; end parent ol
+            for (var i = this_level; i < level; i++) {
+              html += "</li></" + settings.listType + ">";
+            }
+            html +=
+              '<li class="' + settings.classes.item + '">' + createLink(header);
+          } else if (this_level > level) {
+            // lower level than before; expand the previous to contain a ol
+            for (i = this_level; i > level; i--) {
+              html +=
+                "<" +
+                settings.listType +
+                ' class="' +
+                settings.classes.list +
+                '">' +
+                '<li class="' +
+                settings.classes.item +
+                '">';
+            }
+            html += createLink(header);
+          }
+          level = this_level; // update for the next one
+        });
+      html += "</" + settings.listType + ">";
+      if (!settings.noBackToTopLinks) {
+        $(document).on("click", ".back-to-top", function () {
+          $(window).scrollTop(0);
+          window.location.hash = "";
+        });
+      }
+
+      render[settings.showEffect]();
+    };
+  })(jQuery);
+
+  $(document).ready(function () {
+    $("#toc").toc({
+      title: "目录",
+      listType: "ul",
     });
+
+    scrollSpy();
+  });
+
+  // 滚动监听实现 - 滚动文章时目录自动更新
+  function scrollSpy() {
+    let headerHeights = [], // 内容中每个标题距顶部的高度
+      headerList = [...document.getElementsByClassName("clickable-header")], // 获取内容中所有的 header
+      catalogList = [...document.querySelectorAll("#toc > ul > li a")]; // 获取目录中所有的 a 标签
+
+    headerList.forEach((header) => {
+      headerHeights.push(header.offsetTop);
+    });
+    // 滚动距离无法取到最后一个，在数组后加上一个两倍达到效果
+    headerHeights.push(headerList[headerList.length - 1] * 2);
+
+    const contentHeight = document
+        .getElementsByClassName("content")[0]
+        .getBoundingClientRect().height,
+      header = document.getElementsByClassName("header_content")[0],
+      min = 128; // 目录容器距顶部高度最小值为 128 px
+    let headerHeight = header.offsetHeight;
+    // 无法正确获取 header 高度，采用其中元素高度累加
+    catalogList.forEach((item) => {
+      headerHeight += item.offsetHeight;
+    });
+
+    // 监听 scroll 事件，更新目录状态
+    window.addEventListener("scroll", () => {
+      const scrollY = window.pageYOffset;
+      // 设置 scrollY 最大值
+      if (scrollY >= contentHeight - headerHeight - min) return;
+      // 根据 scrollY 的值设置目录容器距顶部的高度
+      header.style.marginTop = scrollY > min ? `${scrollY}px` : `${min}px`;
+      for (let i = 0; i < headerHeights.length - 1; i++) {
+        if (scrollY >= headerHeights[i] && scrollY < headerHeights[i + 1]) {
+          // 当前标题的目录显示选中状态
+          catalogList[i].classList.add("active");
+        } else {
+          catalogList[i].classList.remove("active");
+        }
+      }
+    });
+  }
 </script>
