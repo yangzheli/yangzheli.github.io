@@ -177,13 +177,7 @@ html > #toc ul > li {color: green;} /* 0, 1, 0, 3 */
 
 - 当特殊性也相同，则按出现顺序排序，一个声明越后出现，它的优先级越高
 
-## 盒模型
-
-## 浮动与定位
-
-## 其它
-
-### 块级元素与行内元素
+## 单位、字体与文本属性
 
 ### 长度单位
 
@@ -201,6 +195,8 @@ html > #toc ul > li {color: green;} /* 0, 1, 0, 3 */
 | rem              | 相对于根元素的字体大小，对于需要适配各种移动设备，rem 必不可少                       |
 | ex               | 字符 x 的高度                                                                        |
 
+### 字体
+
 ### 文本属性
 
 | 常见文本属性    | 作用 (未特殊说明，则该属性能应用于所有元素) |
@@ -217,7 +213,33 @@ html > #toc ul > li {color: green;} /* 0, 1, 0, 3 */
 | white-space     | 设置如何处理元素内部的空白符和换行符        |
 | direction       | 设置文本、表中列布局的方向                  |
 
-### 字体
+## 盒模型
+
+### 块级元素与行内元素
+
+块级 (block-level) 元素：默认情况下，在元素框之前和之后生成了分隔符；块级元素能够包含行内元素和其它块级元素。常见块级元素有 `div h1-h6 p ul ol dl header footer form table canvas audio video`
+
+行内/内联 (inline-level) 元素：默认情况下，不会在元素框之前和之后生成分隔符；行内元素只能包含数据和其它行内元素。常见行内元素有 `span a i img button input label select textarea br em strong`
+
+(待更新：块级元素与行内元素的宽、高度设置)
+
+根据 HTML 层次结构要求：行内元素可以继承块级元素，而反之不行。但 CSS 没有这种限制，可以通过修改元素 display 属性值将块级元素与行内元素相互转换。常见 display 属性值有：
+
+| 常见 display 属性值 | 作用                           |
+| :------------------ | :----------------------------- |
+| none                | 此元素不会被显示               |
+| block               | 此元素将显示为块级元素         |
+| inline              | 默认值。此元素将显示为行内元素 |
+| inline-block        | 行内块元素                     |
+| list-item           | 此元素将作为列表显示           |
+| table               | 此元素将作为块级表格显示       |
+| inline-table        | 此元素将作为行内表格显示       |
+| table-cell          | 此元素将作为表格单元格显示     |
+| inherit             | 从父元素继承 display 的属性值  |
+
+## 浮动与定位
+
+## 页面布局
 
 ## CSS 如何工作
 
@@ -226,3 +248,5 @@ html > #toc ul > li {color: green;} /* 0, 1, 0, 3 */
 CSS 权威指南 (第三版)
 
 [CSS (层叠样式表) \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/CSS)
+
+[W3School CSS 教程](https://www.w3school.com.cn/css/index.asp)
