@@ -239,7 +239,7 @@ rules: [
 
 ## 使用 CSS 预处理器
 
-CSS 预处理器增加了一些原生 CSS 不具备的特性，在 Webpack 中，使用预处理器需要匹配对应的 loader，主流预处理器有 Sass、Less、Stylus 和 PostCSS。下面以 Sass 为例介绍如何在 Webpack 中使用预处理器。
+CSS 预处理器增加了一些原生 CSS 不具备的特性，在 Webpack 中，使用预处理器需要匹配对应的 loader，主流预处理器有 Sass、Less、Stylus 和 PostCSS。下面以 Sass 为例介绍如何在 Webpack 中使用预处理器：
 
 ### 安装依赖
 
