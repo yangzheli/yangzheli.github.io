@@ -217,6 +217,10 @@ html > #toc ul > li {color: green;} /* 0, 1, 0, 3 */
 
 ## 盒模型
 
+### 使用 auto
+
+对于水平格式化的 7 个属性 `margin-left border-left padding-lefting width padding-right border-right margin-right`，只有 width 及左、右外边距可以设置为 auto，其余属性必须为特定的值。
+
 ### 块级元素与行内元素
 
 块级 (block-level) 元素：默认情况下，在元素框之前和之后生成了分隔符；块级元素能够包含行内元素和其它块级元素。常见块级元素有 `div h1-h6 p ul ol dl header footer form table canvas audio video`
