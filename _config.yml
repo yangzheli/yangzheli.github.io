@@ -36,6 +36,11 @@ defaults:
       layout: post
       comment: true
 
+# cache
+webrick:
+  headers:
+    Cache-Control: no-cache
+
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 markdown: kramdown
 highlighter: rouge # 代码高亮插件
