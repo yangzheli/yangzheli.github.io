@@ -21,7 +21,7 @@ user:
   pic: /assets/img/home/doraemon.jpg
   picAlt: "blog"
   message: 不积跬步，无以至千里
-  aboutme: false # comment this out if you don't need the 'about' page.
+  aboutme: true # comment this out if you don't need the 'about' page.
 
 exclude:
   - README.md
