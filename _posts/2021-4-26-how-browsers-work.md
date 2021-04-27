@@ -6,4 +6,4 @@ comments: true
 
 ## 参考
 
-[How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm)
+- [How browsers work](http://taligarsiel.com/Projects/howbrowserswork1.htm)

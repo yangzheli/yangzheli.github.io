@@ -297,6 +297,6 @@ $hightlight-color: #f90;
 
 ## 参考
 
-[Vue Loader](https://vue-loader.vuejs.org/zh/)
+- [Vue Loader](https://vue-loader.vuejs.org/zh/)
 
-[Webpack](https://webpack.docschina.org/guides/)
+- [Webpack](https://webpack.docschina.org/guides/)

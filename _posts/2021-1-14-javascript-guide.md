@@ -1,5 +1,5 @@
 ---
-title: 前端总结 (1) -- JavaScript 指南
+title: JavaScript 指南
 categories: [frontend]
 comments: true
 ---

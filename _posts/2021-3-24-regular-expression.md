@@ -130,8 +130,8 @@ text.replace(quote, "“$1”");
 
 ## 参考
 
-[正则表达式 - JavaScript \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
+- [正则表达式 - JavaScript \| MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
-David Flanagan. JavaScript 权威指南 (第 6 版)
+- David Flanagan. JavaScript 权威指南 (第 6 版)
 
-Nicholas C. Zakas. 高性能 JavaScript
+- Nicholas C. Zakas. 高性能 JavaScript
