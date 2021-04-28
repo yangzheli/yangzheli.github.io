@@ -346,9 +346,9 @@ position 属性用于指定一个元素的定位方式
 | ease-in                         | 慢速开始的过渡效果，等价于 cubic-bezier(0.42, 0, 1, 1)                            |
 | ease-out                        | 慢速结束的过渡效果，等价于 cubic-bezier(0, 0, 0.58, 1)                            |
 | ease-in-out                     | 慢速开始和结束的过渡效果，等价于 cubic-bezier(0.42, 0, 0.58, 1)                   |
-| cubic-bezier(n, n, n, n)        | 自定义 cubic-bezier 函数取值                                                      |
+| cubic-bezier(x1, y1, x2, y2)    | 自定义 cubic-bezier 函数取值                                                      |
 
-更多关于贝塞尔曲线 (cubic-bezier) 的内容，请前往文章 [《贝塞尔曲线介绍》](/2021-04/cubic-bezier)。
+更多关于贝塞尔曲线 (Bezier curve) 的内容，请前往文章 [《贝塞尔曲线介绍》](/2021-04/bezier-curve)。
 
 - `transition-delay`：规定开始过渡效果前等待多久 (默认值为 0)。
 
